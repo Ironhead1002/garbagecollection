@@ -1,0 +1,53 @@
+*{
+box-sizing: border-box;
+}
+body{
+background-image: url(b.png);
+background-image: no-repeat;
+background-size: cover;
+}
+/* Style all input fields */
+input {
+width: 100%;
+
+padding: 12px;
+font-size:15px;
+border: 1px solid #ccc;
+border-radius: 4px;
+box-sizing: border-box;
+margin-top: 6px;
+margin-bottom: 16px;
+}
+/* Style the submit button */
+input[type=submit] {
+background-color: #4CAF50;
+color: white;
+}
+/* Style the container for inputs */
+.container {
+background-color: rgba(0,0,0,0.5);
+margin: auto;
+padding: 50px;
+border-radius: 5px;
+box-shadow: 0px 0px 10px #000;
+position: absolute;
+top: 0px;
+bottom: 0px;
+left: 0px;
+right: 0px;
+width: 600px;
+height: 700px;
+}
+.container .header-text{
+font-size: 50px;
+font-weight: 600;
+padding: 12px;
+font-size:15px;
+border: 1px solid #ccc;
+border-radius: 4px;
+box-sizing: border-box;
+margin-top: 6px;
+margin-bottom: 16px;
+}
+
+
