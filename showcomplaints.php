@@ -61,6 +61,9 @@ if ($_SESSION['s_email'] == true) {
   echo "<td>" . $row['area'] . "</td>";
   echo "<td>" . $row['complaint'] . "</td>";
   echo "<td>" . $row['status'] . "</td>";
+  if($_SESSION['type'] == "sweeper" && $row['status'] == 'open'){
+    echo "<td><a href=\"closecomplaints.php?edit=".$row['complaint_id']."\"><button class=\"w3-button w3-red\">Close Complaints</button></a></td>";
+  }
   }
   ?>
 

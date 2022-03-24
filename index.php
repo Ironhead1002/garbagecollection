@@ -19,6 +19,9 @@ if(isset($_POST['submit'])){
   if ($cnt>0)
   {
       $_SESSION['s_email'] = $email;
+      while($row = mysqli_fetch_array($quary)){
+        $_SESSION['type'] = $row['user_type'];
+      }
 
       header("location:registercomplaints.php");
   }
