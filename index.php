@@ -11,8 +11,8 @@ if(isset($_POST['submit'])){
   $con = mysqli_connect("localhost","root","","registration") or die("connection failed");
   $email = $_POST['email'];
   $password = $_POST['password'];
-
-  $sql="select * from userregistration where email='$email' and password='$password' ";
+  $e_pass = md5($password);
+  $sql="select * from userregistration where email='$email' and password='$e_pass' ";
   $quary = mysqli_query($con,$sql);
   $cnt = mysqli_num_rows($quary);
 
@@ -21,9 +21,15 @@ if(isset($_POST['submit'])){
       $_SESSION['s_email'] = $email;
       while($row = mysqli_fetch_array($quary)){
         $_SESSION['type'] = $row['user_type'];
+        $_SESSION['user_id'] = $row['Id'];
       }
 
-      header("location:registercomplaints.php");
+      if($_SESSION['type'] == 'user'){
+        header("location:registercomplaints.php");
+      }
+      else{
+        header("location:showcomplaints.php");
+      }
   }
   else
   {

@@ -61,7 +61,8 @@ margin-bottom: 16px;
   <?php
   if(count($_POST)>0) {
     $con = mysqli_connect("localhost","root","","registration") or die("connection failed");
-    $sql = "INSERT INTO userregistration(name,email,password,mobile,address) VALUES ('" . $_POST["name"] . "','" . $_POST["email"] . "','" . $_POST["password"] . "','" . $_POST["mobile"] . "','" . $_POST["address"] . "')";
+    $pass = md5($_POST["password"]);
+    $sql = "INSERT INTO userregistration(name,email,password,mobile,address) VALUES ('" . $_POST["name"] . "','" . $_POST["email"] . "','" . $pass . "','" . $_POST["mobile"] . "','" . $_POST["address"] . "')";
     mysqli_query($con,$sql);
     $current_id = mysqli_insert_id($con);
 
@@ -94,7 +95,7 @@ margin-bottom: 16px;
     <span id="password_span" style="color:red;">*</span><br>
 
     <label for="mobile">Mobile number</label>
-    <input type="number" id="mobile" name="mobile">
+    <input type="text" id="mobile" name="mobile">
     <span id="mobile_span" style="color:red;">*</span><br>
 
     <label for="address">Address</label>

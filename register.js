@@ -3,6 +3,7 @@ function validation(frmUser) {
     var email = document.getElementById('email').value;
     var password = document.getElementById('password').value;
     var mobile = document.getElementById('mobile').value;
+    console.log(mobile);
     var address = document.getElementById('address').value;
 
     letters = /^[a-zA-Z ]*$/;

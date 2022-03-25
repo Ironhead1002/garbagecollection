@@ -23,7 +23,11 @@ if ($_SESSION['s_email'] == true) {
       <a class="navbar-brand" href="#">Garbage Collection</a>
     </div>
     <ul class="nav navbar-nav">
-      <li><a href="registercomplaints.php">Launch Complaints</a></li>
+      <?php
+        if($_SESSION['type'] == 'user'){
+          echo "<li><a href=\"registercomplaints.php\">Launch Complaints</a></li>";
+        }
+      ?>
       <li><a href="showcomplaints.php">Complaints</a></li>
       <li><a href="logout.php">Logout</a></li>
     </ul>
@@ -50,7 +54,14 @@ if ($_SESSION['s_email'] == true) {
   {
   echo "Failed To Connect <br>".mysqli_connect_error();
   }
-  $sql = "select * from postcomplaint";
+  $i = $_SESSION['user_id'];
+
+  if($_SESSION['type'] == 'user'){
+  $sql = "select * from postcomplaint where user_id = $i";
+  }
+  else{
+    $sql = "select * from postcomplaint";
+  }
   $result = mysqli_query($con,$sql);
   while($row = mysqli_fetch_array($result))
   {
